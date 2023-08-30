@@ -2,76 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { data } from '../shared/data';
+import InputBox from '../components/InputBox';
+import Header from '../components/Header';
+import WorkBox from '../components/WorkBox';
+import DoneBox from '../components/DoneBox';
 
 function Home() {
-  // const [title, setTitle] = useState("");
-  // const [body, setBody] = useState("");
-  // const [isDone, setIsDone] = useState(false);
-  
-  // const onSubmitHandler = () => {
-  //   if (title === '' || body === ''){
-  //       alert('앗! 제목과 내용 모두 입력해 주세요 😢');
-  //       return false;
-  //   } else {
-  //       const newTodo = {
-  //           id : todoList.length + 1,
-  //           title,
-  //           body,
-  //           isDone
-  //       }
-
-  //       setTodoList([...todoList, newTodo])
-  //       setTitle("");
-  //       setBody("");
-  //       setIsDone(false);
-  //   }
-  // };
-
   return (
     <div style={{
       width: "1200px",
       margin: "0 auto",
       padding: "25px",
     }}>
-      {/* header */}
-      <header>
-          <Title>To Do List</Title>
-      </header>
+      <Header></Header>
+      <InputBox></InputBox>
+      <WorkBox></WorkBox>
+      <DoneBox></DoneBox>
 
-      {/* add */}
-      {/* <Section>
-          <TopBox>
-              <RedOne></RedOne>
-              <YellowOne></YellowOne>
-          </TopBox>
-          <BodyBox>
-              <InputBoxTitle>
-                  <MiniTitle>Title</MiniTitle>
-                  <InputTitle
-                      placeholder="제목을 입력해 주세요."
-                      value={title}
-                      onChange={(event) => {
-                          // setTitle(event.target.value);
-                      }}
-                      ></InputTitle>
-              </InputBoxTitle>
-              <InputBoxContent>
-                  <MiniTitle>Content</MiniTitle>
-                  <InputTextarea
-                      placeholder="내용을 입력해 주세요."
-                      value={body}
-                      onChange={(event) => {
-                          // setBody(event.target.value);
-                      }}
-                  ></InputTextarea>
-              </InputBoxContent>
-          </BodyBox>
-          <BtnBox>
-              <Button onClick={onSubmitHandler}>
-                  +
-              </Button>
-          </BtnBox>
-      </Section> */}
 
       {/* <div>
         {data.map(item => {
