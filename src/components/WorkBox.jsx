@@ -1,5 +1,6 @@
 import "../App"
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 // Working
 function WorkBox({todoList, setTodoList}) {
@@ -25,6 +26,15 @@ function WorkBox({todoList, setTodoList}) {
       <Section>
           <MiniTitle>Working</MiniTitle>
           <ListWrap>
+            {/* 페이지 이동 소스 */}
+            {/* <div>
+              {data.map(item => {
+                return (
+                  <Link to={`/detail/${item.id}`}>{item.todo}이동</Link>
+                )
+              })}
+            </div> */}
+
               {/* {todoList
               .filter((i)=> i.isDone === false)
               .map((item)=>(

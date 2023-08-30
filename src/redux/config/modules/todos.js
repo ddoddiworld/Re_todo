@@ -44,6 +44,12 @@ const initialState = [
     body: "뭔 소린지 모르겠어요. 싫다구요😫!!!",
     isDone: false,
   },
+  {
+    id: new Date().getTime(),
+    title: "으악!",
+    body: "고양이 귀여워",
+    isDone: false,
+  },
 ];
 
 const todos = (state = initialState, action) => {

@@ -1,5 +1,6 @@
 import "../App"
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 // Done
 function DoneBox({todoList, setTodoList}) {
@@ -23,6 +24,15 @@ function DoneBox({todoList, setTodoList}) {
       <Section>
           <MiniTitle>Done</MiniTitle>
           <ListWrap>
+            {/* 페이지 이동 소스 */}
+            {/* <div>
+              {data.map(item => {
+                return (
+                  <Link to={`/detail/${item.id}`}>{item.todo}이동</Link>
+                )
+              })}
+            </div> */}
+
               {/* {todoList
               .filter((i)=> i.isDone === true)
               .map((item)=> (
