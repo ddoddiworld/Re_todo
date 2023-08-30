@@ -1,15 +1,15 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { data } from '../shared/data';
 
 function Home() {
-  const navigate = useNavigate();
-
   return (
     <div>
-      Home
-      <button onClick={()=>{
-        navigate('/detail')
-      }}>자세히 보기</button>
+      {data.map(item => {
+        return (
+          <Link to={`/detail/${item.id}`}>{item.todo}이동</Link>
+        )
+      })}
     </div>
   )
 }
