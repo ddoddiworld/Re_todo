@@ -1,0 +1,75 @@
+/**********************************
+    RESET CSS
+***********************************/
+html, body, div, p, span, strong, b, em, iframe, pre,
+h1, h2, h3, h4, h5, h6,
+img, dl, dt, dd,
+fieldset, form, legend, label,
+table, caption, thead, tbody, tfoot, tr, th, td,
+ul, ol, li, a, input, select, textarea {margin: 0;padding: 0; border: 0 none; }
+
+body {font-size: 14px; line-height: 1;color: #333; background-color: #f7eee4}
+
+ul, ol, li {list-style: none;}
+em, address {font-style: normal;}
+img {border: 0 none; font-size: 0;line-height: 0;}
+sup {position: relative;top: 2px;font-size: 11px;line-height: 100%;}
+
+table {border-collapse: collapse; border-spacing:0; }
+caption {overflow: hidden;width: 0;height: 0;font-size: 0; line-height: 0;}
+th, td { vertical-align: middle;/* white-space: nowrap */}
+
+a {color: #333; text-decoration: none; line-height: 1;}
+a:hover, a:focus, a:active {text-decoration: underline;}
+a:visited {color: #333;}
+*, html {box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; }
+*, *:before, *:after {box-sizing: border-box;-webkit-box-sizing: border-box; -moz-box-sizing: border-box;}
+
+/**********************************
+    Style CSS
+    - Styled-component로 변경 (8/29)
+***********************************/
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+/* .poor {font-family: 'Poor Story', cursive;} */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+/* .roboto {font-family: 'Roboto', sans-serif;} */
+
+/* 색상 공통 */
+/* .b-border {border:2px solid #6a6966;}
+.w-bg {background-color: #fff;}
+.g-bg {background-color: #c5c5c5;}
+.b-font {color: #9a9a9a;} */
+
+/* To Do List 제목 */
+/* .title {font-size:40px;text-align: center;font-weight:bold;padding-bottom:20px;letter-spacing:2px} */
+
+/* 상단 공통 */
+/* .top-box {display:flex;padding:7px 0 7px 5px;border-bottom:2px solid #6a6966} */
+/* .top-box > span {margin:0 2px} */
+/* .red-one {display:block;width:18px;height:18px;background-color: #f94d3f;border-radius:50%;border:1px solid #92776c} */
+/* .yellow-one {display:block;width:18px;height:18px;background-color: #f7d08e;border-radius:50%;border:1px solid #92776c} */
+
+/* 버튼 공통 */
+/* .box-btn {display:block;text-align:right;padding:10px}
+.box-btn button {border:1px solid #6a6966;height:30px;width:30px} */
+/* .box-btn button:hover {cursor: pointer; transform:scale(1.2)} */
+
+/* 입력 박스 */
+/* .input-box div {display:flex} */
+/* .input-box div p {font-size:20px;width:95px;letter-spacing:1px} */
+/* .input-box .input-box-title {margin-bottom:20px} */
+/* .input-box .input-box-title input{border-bottom:1px solid #6a6966;width:100%;padding-left:10px;font-size:20px;padding-bottom:3px} */
+/* .input-box .input-box-content textarea{resize:none;background-color:#eee;width:100%;height:100px;border-radius:10px;padding:5px 10px;font-size:15px} */
+/* .input-box input:focus, .input-box textarea:focus {outline:none} */
+
+/* Working & Done */
+/* .work-box, .done-box {margin-top:25px} */
+/* .input-box, .output-box {padding: 15px} */
+/* .done-box {margin-top:40px} */
+/* .work-box h2, .done-box h2 {font-size:25px;letter-spacing:1px;padding-bottom:15px} */
+/* .work-box ul, .done-box ul {display:flex;flex-wrap:wrap;gap:15px;min-height:253px} */
+/* .work-box ul li, .done-box ul li {width:calc(96%/4)} */
+/* .work-box .output-title, .done-box .output-title {min-height:20px;font-size:20px;margin-bottom:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.work-box .output-content, .done-box .output-content {height:100px;max-height:100px;background-color:#eee;border-radius:10px;padding:7px 9px;overflow:hidden} */
+/* .work-box .box-btn button:first-child,
+.done-box .box-btn button:first-child {margin-right:8px} */
