@@ -5,24 +5,28 @@ import { removeTodo, switchTodo } from "../config/modules/todos";
 import { Link, useNavigate } from "react-router-dom";
 
 // Working
-function WorkBox({todo, isDone}) {
+function WorkBox({isDone}) {
   // hooks
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // 저장소 연결
   const todos = useSelector((state) => state.todos);
 
+  // 삭제, 상태변경, 상세보기는 id를 추적함. 따라서 인자에 id를 넣어야함!
   // 삭제
-  const handleRemoveButton = () => dispatch(removeTodo(todos.id));
+  const handleRemoveButton = (id) => {
+    dispatch(removeTodo(id))
+  };
 
   // 완료 <-> 진행 중
-  const handleSwitchButton = () => {
-    dispatch(switchTodo(todos.id));
+  const handleSwitchButton = (id) => {
+    dispatch(switchTodo(id));
   };
 
   // 상세보기
-  const handleDetailPageLinkClick = () => {
-    navigate(`/${todos.id}`);
+  const handleDetailPageLinkClick = (id) => {
+    navigate(`/${id}`);
   };
 
   return (
@@ -41,13 +45,14 @@ function WorkBox({todo, isDone}) {
                   <ListContent>
                       <ConTitle title={item.title}>{item.title}</ConTitle>
                       <ConContent title={item.body}>{item.body}</ConContent>
-                      <Link onClick={handleDetailPageLinkClick}>[상세보기]</Link>
+                      <Link onClick={()=>{handleDetailPageLinkClick(item.id)}}>[상세보기]</Link>
                   </ListContent>
                   <BtnBox>
-                      <Button onClick={handleRemoveButton}>🗑️</Button>
-                      <Button onClick={handleSwitchButton}>
+                      <Button onClick={()=>{handleRemoveButton(item.id)}}>🗑️</Button>
+                      <Button onClick={()=>{handleSwitchButton(item.id)}}>
                         {isDone ?  "↩️" :  "✅"}
                         </Button>
+                        {item.id}
                   </BtnBox>
               </List>)
             })
