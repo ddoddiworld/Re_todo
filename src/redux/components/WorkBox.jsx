@@ -13,16 +13,16 @@ function WorkBox({todo, isDone}) {
   const todos = useSelector((state) => state.todos);
 
   // 삭제
-  const handleSwitchButton = () => dispatch(switchTodo(todo.id));
+  const handleRemoveButton = () => dispatch(removeTodo(todos.id));
 
   // 완료 <-> 진행 중
-  const handleRemoveButton = () => {
-    dispatch(removeTodo(todo.id));
+  const handleSwitchButton = () => {
+    dispatch(switchTodo(todos.id));
   };
 
   // 상세보기
   const handleDetailPageLinkClick = () => {
-    navigate(`/${todo.id}`);
+    navigate(`/${todos.id}`);
   };
 
   return (
@@ -65,7 +65,7 @@ const Section = styled.section`
 const MiniTitle = styled.h2`
   font-size:25px;
   letter-spacing:1px;
-  padding-bottom:15px;
+  padding-bottom:20px;
 `
 const ListWrap = styled.ul`
   display:flex;

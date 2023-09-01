@@ -36,7 +36,6 @@ function InputBox() {
       }
 
       dispatch(addTodo(newTodo));
-      console.log(newTodo)
 
       setTitle('');
       setBody('');
