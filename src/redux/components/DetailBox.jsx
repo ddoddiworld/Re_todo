@@ -123,8 +123,6 @@ const ConTitle = styled.p`
 `
 const ConContent = styled.p`
   font-family: 'Poor Story', cursive;
-  height:100px;
-  max-height:100px;
   background-color:#eee;
   border-radius:10px;
   padding:10px 12px;
