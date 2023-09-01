@@ -52,7 +52,6 @@ function WorkBox({isDone}) {
                       <Button onClick={()=>{handleSwitchButton(item.id)}}>
                         {isDone ?  "↩️" :  "✅"}
                         </Button>
-                        {item.id}
                   </BtnBox>
               </List>)
             })

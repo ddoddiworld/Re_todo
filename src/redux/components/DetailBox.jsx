@@ -28,7 +28,6 @@ function DetailBox() {
 
   // todo 객체를 얻어옴(filteredTodos는 무조건 요소가 1개여야 함)
   const todo = filteredTodo[0];
-  console.log(todo)
 
   // 뒤로가기
   const goToMain = () => {
@@ -45,7 +44,17 @@ function DetailBox() {
             <TodoIDInfo>{todo.id}</TodoIDInfo>
         </TopBox>
         <ListContent>
-            <ConTitle title={todo.title}>{todo.title}</ConTitle>
+          {todo.isDone === true ? (
+            <ConTitle title={todo.title}>
+              <StatusT>Done</StatusT>
+              {todo.title}
+              </ConTitle>
+          ) : (
+            <ConTitle title={todo.title}>
+              <StatusF>Working</StatusF>
+              {todo.title}
+            </ConTitle>
+          )}
             <ConContent title={todo.body}>{todo.body}</ConContent>
         </ListContent>
         <BtnBox>
@@ -95,6 +104,7 @@ const YellowOne = styled.span`
 const TodoIDInfo = styled.span`
   margin-left:auto; // flex된 상태에서 독단적으로 이동시킬때 사용.
   margin-right:5px;
+  color:#555;
 `
 const ListContent = styled.div`
   padding: 20px;
@@ -102,12 +112,14 @@ const ListContent = styled.div`
 `
 const ConTitle = styled.p`
   font-family: 'Poor Story', cursive;
-  min-height:20px;
+  min-height:30px;
   font-size:25px;
   margin-bottom:20px;
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
+  display:flex;
+  align-items:center;
 `
 const ConContent = styled.p`
   font-family: 'Poor Story', cursive;
@@ -132,4 +144,22 @@ const Button = styled.button`
     cursor:pointer;
     transform:scale(1.2);
   }
+`
+const StatusT = styled.span`
+  font-family: 'Roboto',sans-serif;
+  font-size:13px;
+  background-color: #129f74;
+  color: #fff;
+  border-radius:30px;
+  padding:5px;
+  margin-right:5px;
+`
+const StatusF = styled.span`
+  font-family: 'Roboto',sans-serif;
+  font-size:13px;
+  background-color: #ffe26e;
+  border-radius:30px;
+  padding:5px;
+  margin-right:5px;
+  color:#555;
 `
