@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { removeTodo, switchTodo } from "../config/modules/todos";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Working
 function WorkBox({isDone}) {
@@ -45,9 +45,9 @@ function WorkBox({isDone}) {
                   <ListContent>
                       <ConTitle title={item.title}>{item.title}</ConTitle>
                       <ConContent title={item.body}>{item.body}</ConContent>
-                      <Link onClick={()=>{handleDetailPageLinkClick(item.id)}}>[상세보기]</Link>
                   </ListContent>
                   <BtnBox>
+                      <Button onClick={()=>{handleDetailPageLinkClick(item.id)}}>🔎</Button>
                       <Button onClick={()=>{handleRemoveButton(item.id)}}>🗑️</Button>
                       <Button onClick={()=>{handleSwitchButton(item.id)}}>
                         {isDone ?  "↩️" :  "✅"}
@@ -137,11 +137,12 @@ const Button = styled.button`
   border:1px solid #6a6966;
   height:30px;
   width:30px;
+  margin-right:8px;
   &:hover {
     cursor:pointer;
     transform:scale(1.2);
   }
-  &:first-child {
-    margin-right:8px;
+  &:last-child{
+    margin-right:0px;
   }
 `
