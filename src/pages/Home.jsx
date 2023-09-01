@@ -1,10 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import { data } from '../shared/data';
-import InputBox from '../components/InputBox';
-import Header from '../components/Header';
-import WorkBox from '../components/WorkBox';
-import DoneBox from '../components/DoneBox';
+import Header from '../redux/components/Header';
+import InputBox from '../redux/components/InputBox';
+import WorkBox from '../redux/components/WorkBox';
 
 function Home() {
   return (
@@ -15,8 +12,8 @@ function Home() {
     }}>
       <Header></Header>
       <InputBox></InputBox>
-      <WorkBox></WorkBox>
-      <DoneBox></DoneBox>
+      <WorkBox isDone={false}></WorkBox>
+      <WorkBox isDone={true}></WorkBox>
     </div>
   )
 }

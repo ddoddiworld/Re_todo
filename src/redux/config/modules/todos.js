@@ -1,65 +1,61 @@
+import React from "react";
+
 // action value
-const TODO_ADD = "TODO_ADD";
-const TODO_DELETE = "TODO_DELETE";
-const TODO_UPDATE = "TODO_UPDATE";
+const ADD_TODO = "ADD_TODO";
+const REMOVE_TODO = "REMOVE_TODO";
+const SWITCH_TODO = "SWITCH_TODO";
 
 export const addTodo = (payload) => {
   return {
-    type: TODO_ADD,
+    type: ADD_TODO,
     payload,
   };
 };
 
-export const deleteTodo = (payload) => {
+export const removeTodo = (payload) => {
   return {
-    type: TODO_DELETE,
+    type: REMOVE_TODO,
     payload,
   };
 };
 
-export const updateTodo = (payload) => {
+// isDone의 값에 따른 switch
+export const switchTodo = (payload) => {
   return {
-    type: TODO_UPDATE,
+    type: SWITCH_TODO,
     payload,
   };
 };
 
-// state
+// 초기 상태값 (state)
 const initialState = [
   {
-    id: new Date().getTime(),
+    id: Math.random().toString(36).substr(2, 16),
     title: "리액트 너무 어렵네요!",
     body: "망했네요...",
-    isDone: false,
-  },
-  {
-    id: new Date().getTime(),
-    title: "이번에는 패키지를 사용해서 다시 만들고 있어요",
-    body: "어렵네요...",
-    isDone: false,
-  },
-  {
-    id: new Date().getTime(),
-    title: "리덕스가 싫어요",
-    body: "뭔 소린지 모르겠어요. 싫다구요😫!!!",
-    isDone: false,
-  },
-  {
-    id: new Date().getTime(),
-    title: "으악!",
-    body: "고양이 귀여워",
     isDone: false,
   },
 ];
 
 const todos = (state = initialState, action) => {
   switch (action.type) {
-    case TODO_ADD:
-      return state;
-    case TODO_DELETE:
-      return state;
-    case TODO_UPDATE:
-      return state;
+    // 추가
+    case ADD_TODO:
+      return [...state, action.payload];
+
+    // 삭제
+    case REMOVE_TODO:
+      return state.filter((item) => item.id !== action.payload);
+
+    // 상태(isDone) 변경
+    case SWITCH_TODO:
+      return state.map((item) => {
+        if (item.id === action.payload) {
+          return { ...item, isDone: !item.isDone };
+        } else {
+          return item;
+        }
+      });
 
     // 기본
     default:

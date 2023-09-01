@@ -1,31 +1,47 @@
 import { useState } from "react";
 import styled from 'styled-components'
-import "../App"
+import { useDispatch, useSelector } from "react-redux";
+import { addTodo } from "../config/modules/todos";
 
 // Title, Content, Id
-function InputBox({ todoList, setTodoList }) {
-  // const [title, setTitle] = useState("");
-  // const [body, setBody] = useState("");
-  // const [isDone, setIsDone] = useState(false);
+function InputBox() {
+  const dispatch = useDispatch();
 
-  // const onSubmitHandler = () => {
-  //     if (title === '' || body === ''){
-  //         alert('앗! 제목과 내용 모두 입력해 주세요 😢');
-  //         return false;
-  //     } else {
-  //         const newTodo = {
-  //             id : new Date(),
-  //             title,
-  //             body,
-  //             isDone
-  //         }
-  
-  //         setTodoList([...todoList, newTodo])
-  //         setTitle("");
-  //         setBody("");
-  //         setIsDone(false);
-  //     }
-  // };
+  //  저장소
+  // const todos = useSelector((state)=> state.todos); // 저장소에 값 접근
+
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+
+  // title의 변경을 감지하는 함수
+  const handleTitleChange = (event) => {
+    setTitle(event.target.value);
+  };
+
+  // contents의 변경을 감지하는 함수
+  const handleContentsChange = (event) => {
+    setBody(event.target.value);
+  };
+
+  const onSubmitHandler = () => {
+    if (title === '' || body === '') {
+      alert("앗! 제목과 내용을 모두 입력해 주세요!");
+      return false;
+    } else {
+      const newTodo = {
+        id: Math.random().toString(36).substr(2, 16),
+        title,
+        body,
+        isDone: false,
+      }
+
+      dispatch(addTodo(newTodo));
+      console.log(newTodo)
+
+      setTitle('');
+      setBody('');
+    }
+  };
 
   return (
       <Section>
@@ -38,27 +54,23 @@ function InputBox({ todoList, setTodoList }) {
                   <MiniTitle>Title</MiniTitle>
                   <InputTitle
                       placeholder="제목을 입력해 주세요."
-                      // value={title}
-                      // onChange={(event) => {
-                      //     setTitle(event.target.value);
-                      // }}
+                      value={title}
+                      onChange={handleTitleChange}
                       ></InputTitle>
               </InputBoxTitle>
               <InputBoxContent>
                   <MiniTitle>Content</MiniTitle>
                   <InputTextarea
                       placeholder="내용을 입력해 주세요."
-                      // value={body}
-                      // onChange={(event) => {
-                      //     setBody(event.target.value);
-                      // }}
+                      value={body}
+                      onChange={handleContentsChange}
                   ></InputTextarea>
               </InputBoxContent>
           </BodyBox>
           <BtnBox>
-              {/* <Button onClick={onSubmitHandler}>
+              <Button onClick={onSubmitHandler}>
                   +
-              </Button> */}
+              </Button>
           </BtnBox>
       </Section>
   );
