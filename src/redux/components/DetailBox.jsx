@@ -128,6 +128,7 @@ const ConContent = styled.p`
   padding:10px 12px;
   overflow:hidden;
   font-size:18px;
+  min-height: 100px;
 `
 const BtnBox = styled.div`
   display:block;
