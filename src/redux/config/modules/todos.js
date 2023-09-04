@@ -32,8 +32,14 @@ const initialState = [
   {
     id: Math.random().toString(36).substr(2, 16),
     title: "리액트 너무 어렵네요!",
-    body: "망했네요...",
+    body: "개발자 될 수 있을까요? 😭",
     isDone: false,
+  },
+  {
+    id: Math.random().toString(36).substr(2, 16),
+    title: "리덕스 너무 어렵네요!",
+    body: "답이 없어요. 망했어요.",
+    isDone: true,
   },
 ];
 
