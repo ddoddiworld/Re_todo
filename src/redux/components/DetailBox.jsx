@@ -17,17 +17,21 @@ function DetailBox() {
   const filteredTodo = useSelector((state)=>{
     return state.todos.filter((item) => item.id === params.id);
   });
-
+  console.log(filteredTodo)
   // 화면이 최초 렌더링 되는 시점에 올바르지 않은 접근을 차단 (useEffect 사용)
-  // useEffect(()=>{
-  //   if(filteredTodo.length <= 0 || filteredTodo > 1) {
-  //     alert('올바르지 않은 접근이에요! 😫 메인 페이지로 이동합니다.');
-  //     navigate("/"); // 기존 경로(메인 화면) 강제 이동.
-  //   }
-  // }, []);
+  useEffect(()=>{
+    if(filteredTodo.length <= 0 || filteredTodo.length > 1) {
+      alert('올바르지 않은 접근이에요! 😫 메인 페이지로 이동합니다.');
+      navigate("/"); // 기존 경로(메인 화면) 강제 이동.
+    }
+  }, []);
 
   // todo 객체를 얻어옴(filteredTodos는 무조건 요소가 1개여야 함)
   // filteredTodo만 가져오면 [{}]이기 때문에 [0]을 꼭 지정해야함!
+  // 09.04 에러 나는 부분 해결. 임시방편이라 좋은 코드는 아님.
+  if (filteredTodo.length === 0){
+    return <></>
+  }
   const todo = filteredTodo[0];
 
   // 뒤로가기
