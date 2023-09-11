@@ -9,6 +9,9 @@ function InputBox() {
 
   //  저장소
   // const todos = useSelector((state)=> state.todos); // 저장소에 값 접근
+  // inputBox에서 저장소 필요없는 이유 : 
+  // 사용자한테 받은 값을 화면에 띄우지 않아서.
+  // 즉, add, delete, switch 하는 action이 없기 때문에
 
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
